@@ -72,16 +72,16 @@ def mysql_check_if_ast_exists_in_db(request_day, ast_id):
         return records[0][0]
 
 # Asteroid value insert
-def mysql_insert_ast_into_db(create_date, hazardous, name, url, diam_min, diam_max, ts, dt_utc, dt_local, speed, distance, ast_id):
-        cursor = get_cursor()
-        try:
-            cursor = connection.cursor()
-            result  = cursor.execute( "INSERT INTO `ast_daily` (`create_date`, `hazardous`, `name`, `url`, `diam_min`, `diam_max`, `ts`, `dt_utc`, `dt_local`, `speed`, `distance`, `ast_id`) VALUES ('" + str(create_date) + "', '" + s>
-            connection.commit()
-        except Error as e :
-            logger.error( "INSERT INTO `ast_daily` (`create_date`, `hazardous`, `name`, `url`, `diam_min`, `diam_max`, `ts`, `dt_utc`, `dt_local`, `speed`, `distance`, `ast_id`) VALUES ('" + str(create_date) + "', '" + str(hazardous>
-            logger.error('Problem inserting asteroid values into DB: ' + str(e))
-            pass
+# def mysql_insert_ast_into_db(create_date, hazardous, name, url, diam_min, diam_max, ts, dt_utc, dt_local, speed, distance, ast_id):
+#         cursor = get_cursor()
+#         try:
+#             cursor = connection.cursor()
+#             result  = cursor.execute( "INSERT INTO `ast_daily` (`create_date`, `hazardous`, `name`, `url`, `diam_min`, `diam_max`, `ts`, `dt_utc`, `dt_local`, `speed`, `distance`, `ast_id`) VALUES ('" + str(create_date) + "', '" + s>
+#             connection.commit()
+#         except Error as e:
+#             logger.error( "INSERT INTO `ast_daily` (`create_date`, `hazardous`, `name`, `url`, `diam_min`, `diam_max`, `ts`, `dt_utc`, `dt_local`, `speed`, `distance`, `ast_id`) VALUES ('" + str(create_date) + "', '" + str(hazardous>
+#             logger.error('Problem inserting asteroid values into DB: ' + str(e))
+#             pass
 
 def push_asteroids_arrays_to_db(request_day, ast_array, hazardous):
         for asteroid in ast_array:
